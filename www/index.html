@@ -9,7 +9,9 @@
     </head>
     <body>
         <div class="app">
-            <button id="login-adfs">Login with ADFS</button>
+            <button id="login-adfs" style="width:120px;">Ricoh Employees</button>
+            <button id="login-widget" style="width:120px;">Others</button>
+            <hr>
             <p id="result">Not logged in yet.</p>
         </div>
 
@@ -18,7 +20,7 @@
         <script type="text/javascript" src="js/auth0.js"></script>
         <script type="text/javascript">
             $(document).on('deviceready', function() {
-                var domain          = 'contoso.auth0.com'; // e.g.: contoso.auth0.com
+                var domain          = 'contoso.auth0.com';
                 var clientId        = 'KPmb7b0Pps5jwzBRTc3wJzR9zQeCfDr5';
                 var clientSecret    = 'MLgQgSl2SyL46vToZ3w_pYCMjLxYKqGze-4lvJc9yceUg6Y-Pggq1huvxg0v58X2';
                 var connection      = 'partner.com';
@@ -29,6 +31,22 @@
                     $('#result').html('Loading...');
 
                     auth0Client.login({ connection: connection }, function (err, auth0User) {
+                        if (err) $('#result').html('error: ' + err.message);
+                        else {
+                            // * Use auth0User to do wonderful things, e.g.:
+                            // - get user email => auth0User.profile.email
+                            // - get facebook/google/twitter/etc access token => auth0User.profile.identities[0].access_token
+                            // - get Windows Azure AD groups => auth0User.profile.groups
+                            // - etc.
+                            $('#result').html('Hello ' + auth0User.profile.name + '!');
+                        }
+                    });
+                });
+
+                $('#login-widget').on('click', function() {
+                    $('#result').html('Loading...');
+
+                    auth0Client.login(function (err, auth0User) {
                         if (err) $('#result').html('error: ' + err.message);
                         else {
                             // * Use auth0User to do wonderful things, e.g.:
