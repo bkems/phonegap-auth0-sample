@@ -9,16 +9,31 @@
     </head>
     <body>
         <div class="app">
-            <button id="login-adfs" style="width:120px;">Ricoh Employees</button>
-            <button id="login-widget" style="width:120px;">Others</button>
+            <div id="login-panel">
+                <button id="login-adfs" style="width:120px;">Ricoh Employees</button>
+                <button id="login-widget" style="width:120px;">Others</button>
+            </div>
+            <div id="logout-panel" style="display:none;">
+                <button id="logout" style="width:120px;">Logout</button>
+            </div>
             <hr>
-            <p id="result">Not logged in yet.</p>
+            <p id="result"></p>
         </div>
 
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="js/auth0.js"></script>
         <script type="text/javascript">
+
+            function toggleLogin () {
+                $('#login-panel').toggle();
+                $('#logout-panel').toggle();
+            };
+
+            function showUserInfo (auth0User) {
+                $('#result').html(auth0User ? ('Hello ' + auth0User.profile.name + '!') : 'Not logged in yet.');
+            }
+
             $(document).on('deviceready', function() {
                 var domain          = 'contoso.auth0.com';
                 var clientId        = 'KPmb7b0Pps5jwzBRTc3wJzR9zQeCfDr5';
@@ -26,6 +41,12 @@
                 var connection      = 'partner.com';
 
                 var auth0Client = new Auth0Client(domain, clientId, clientSecret);
+
+                var loggedInUser = auth0Client.getCurrentUser();
+                if (loggedInUser) {
+                    showUserInfo(loggedInUser);
+                    toggleLogin();   
+                }
 
                 $('#login-adfs').on('click', function() {
                     $('#result').html('Loading...');
@@ -38,7 +59,8 @@
                             // - get facebook/google/twitter/etc access token => auth0User.profile.identities[0].access_token
                             // - get Windows Azure AD groups => auth0User.profile.groups
                             // - etc.
-                            $('#result').html('Hello ' + auth0User.profile.name + '!');
+                            showUserInfo(auth0User);
+                            toggleLogin();
                         }
                     });
                 });
@@ -54,8 +76,18 @@
                             // - get facebook/google/twitter/etc access token => auth0User.profile.identities[0].access_token
                             // - get Windows Azure AD groups => auth0User.profile.groups
                             // - etc.
-                            $('#result').html('Hello ' + auth0User.profile.name + '!');
+                            showUserInfo(auth0User);
+                            toggleLogin();
                         }
+                    });
+                });
+
+                $('#logout').on('click', function() {
+                    $('#result').html('Loading...');
+
+                    auth0Client.logout(function () {
+                        showUserInfo();
+                        toggleLogin();
                     });
                 });
             });

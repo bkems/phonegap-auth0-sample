@@ -16,10 +16,6 @@ function Auth0Client(domain, clientId, clientSecret) {
 
 Auth0Client.prototype.login = function (options, callback) {
 
-  var parseResult = this._parseResult;
-  var getUserInfo = this._getUserInfo;
-  var userInfoEndpoint = this.UserInfoEndpoint.replace(/{domain}/, this.domain);
-
   if (typeof options === 'function') {
       callback = options;
       options = {};
@@ -27,6 +23,11 @@ Auth0Client.prototype.login = function (options, callback) {
 
   if (!options) options = {};
   if (!callback) callback = function () { };
+
+  var setLocalStorage = this._setLocalStorage;
+  var parseResult = this._parseResult;
+  var getUserInfo = this._getUserInfo;
+  var userInfoEndpoint = this.UserInfoEndpoint.replace(/{domain}/, this.domain);
 
   // defaults
   options.scope = options.scope ? encodeURI(options.scope) : "openid";
@@ -45,6 +46,9 @@ Auth0Client.prototype.login = function (options, callback) {
         idToken: result.id_token,
         profile: profile
       };
+
+      // persist user
+      setLocalStorage('auth0User', auth0User);
 
       return callback(null, auth0User);
     });
@@ -94,6 +98,28 @@ Auth0Client.prototype.login = function (options, callback) {
       return done(null, parsedResult);
     });
   }
+};
+
+Auth0Client.prototype.logout = function (callback) {
+  this._clearLocalStorage();  
+  if (callback) callback();
+};
+
+Auth0Client.prototype.getCurrentUser = function () {
+  return this._getLocalStorage('auth0User');
+};
+
+Auth0Client.prototype._getLocalStorage = function (key) {
+  var value = window.localStorage.getItem(key);
+  return value ? JSON.parse(value) : undefined;
+};
+
+Auth0Client.prototype._setLocalStorage = function (key, value) {
+  window.localStorage.setItem(key, JSON.stringify(value));
+};
+
+Auth0Client.prototype._clearLocalStorage = function () {
+  window.localStorage.clear();
 };
 
 Auth0Client.prototype._getUserInfo = function (endpoint, callback) {

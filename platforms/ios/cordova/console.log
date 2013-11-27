@@ -84,3 +84,39 @@
 2013-11-27 09:58:01.074 Auth0WithAdfs[64381:80b] Resetting plugins due to page load.
 2013-11-27 09:58:01.338 Auth0WithAdfs[64381:80b] Finished load of: file:///Users/sebas/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/27D662C7-A5E8-476A-A786-728B34F7BF8B/Auth0WithAdfs.app/www/index.html
 2013-11-27 09:58:01.381 Auth0WithAdfs[64381:80b] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-11-27 10:12:27.086 Auth0WithAdfs[65635:80b] Multi-tasking -> Device: YES, App: YES
+2013-11-27 10:12:27.911 Auth0WithAdfs[65635:80b] Resetting plugins due to page load.
+2013-11-27 10:12:28.299 Auth0WithAdfs[65635:80b] Finished load of: file:///Users/sebas/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/27D662C7-A5E8-476A-A786-728B34F7BF8B/Auth0WithAdfs.app/www/index.html
+2013-11-27 10:12:28.333 Auth0WithAdfs[65635:80b] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-11-27 10:14:05.931 Auth0WithAdfs[66021:80b] Multi-tasking -> Device: YES, App: YES
+2013-11-27 10:14:06.242 Auth0WithAdfs[66021:80b] Resetting plugins due to page load.
+2013-11-27 10:14:06.352 Auth0WithAdfs[66021:80b] Finished load of: file:///Users/sebas/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/27D662C7-A5E8-476A-A786-728B34F7BF8B/Auth0WithAdfs.app/www/index.html
+2013-11-27 10:14:06.374 Auth0WithAdfs[66021:80b] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-11-27 10:15:01.448 Auth0WithAdfs[66390:80b] Multi-tasking -> Device: YES, App: YES
+2013-11-27 10:15:01.786 Auth0WithAdfs[66390:80b] Resetting plugins due to page load.
+2013-11-27 10:15:01.923 Auth0WithAdfs[66390:80b] Finished load of: file:///Users/sebas/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/27D662C7-A5E8-476A-A786-728B34F7BF8B/Auth0WithAdfs.app/www/index.html
+2013-11-27 10:15:01.954 Auth0WithAdfs[66390:80b] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-11-27 10:15:36.995 Auth0WithAdfs[66760:80b] Multi-tasking -> Device: YES, App: YES
+2013-11-27 10:15:37.263 Auth0WithAdfs[66760:80b] Resetting plugins due to page load.
+2013-11-27 10:15:37.416 Auth0WithAdfs[66760:80b] Finished load of: file:///Users/sebas/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/27D662C7-A5E8-476A-A786-728B34F7BF8B/Auth0WithAdfs.app/www/index.html
+2013-11-27 10:15:37.439 Auth0WithAdfs[66760:80b] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-11-27 10:22:33.154 Auth0WithAdfs[67214:80b] Multi-tasking -> Device: YES, App: YES
+2013-11-27 10:22:36.799 Auth0WithAdfs[67214:80b] Resetting plugins due to page load.
+2013-11-27 10:22:37.186 Auth0WithAdfs[67214:80b] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-11-27 10:22:37.247 Auth0WithAdfs[67214:80b] Finished load of: file:///Users/sebas/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/27D662C7-A5E8-476A-A786-728B34F7BF8B/Auth0WithAdfs.app/www/index.html
+2013-11-27 10:28:19.026 Auth0WithAdfs[67614:80b] Multi-tasking -> Device: YES, App: YES
+2013-11-27 10:28:19.358 Auth0WithAdfs[67614:80b] Resetting plugins due to page load.
+2013-11-27 10:28:19.650 Auth0WithAdfs[67614:80b] Finished load of: file:///Users/sebas/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/27D662C7-A5E8-476A-A786-728B34F7BF8B/Auth0WithAdfs.app/www/index.html
+2013-11-27 10:28:19.688 Auth0WithAdfs[67614:80b] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-11-27 10:30:53.394 Auth0WithAdfs[68005:80b] Multi-tasking -> Device: YES, App: YES
+2013-11-27 10:30:53.742 Auth0WithAdfs[68005:80b] Resetting plugins due to page load.
+2013-11-27 10:30:53.904 Auth0WithAdfs[68005:80b] Finished load of: file:///Users/sebas/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/27D662C7-A5E8-476A-A786-728B34F7BF8B/Auth0WithAdfs.app/www/index.html
+2013-11-27 10:30:53.943 Auth0WithAdfs[68005:80b] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-11-27 10:39:29.734 Auth0WithAdfs[68443:80b] Multi-tasking -> Device: YES, App: YES
+2013-11-27 10:39:30.093 Auth0WithAdfs[68443:80b] Resetting plugins due to page load.
+2013-11-27 10:39:30.247 Auth0WithAdfs[68443:80b] Finished load of: file:///Users/sebas/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/27D662C7-A5E8-476A-A786-728B34F7BF8B/Auth0WithAdfs.app/www/index.html
+2013-11-27 10:39:30.271 Auth0WithAdfs[68443:80b] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-11-27 10:41:05.466 Auth0WithAdfs[68822:80b] Multi-tasking -> Device: YES, App: YES
+2013-11-27 10:41:05.844 Auth0WithAdfs[68822:80b] Resetting plugins due to page load.
+2013-11-27 10:41:06.011 Auth0WithAdfs[68822:80b] Finished load of: file:///Users/sebas/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/27D662C7-A5E8-476A-A786-728B34F7BF8B/Auth0WithAdfs.app/www/index.html
+2013-11-27 10:41:06.034 Auth0WithAdfs[68822:80b] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
