@@ -18,12 +18,13 @@ Android/assets/
 # generated files
 bin/
 gen/
-console.log
+**/console.log
 
 # Local configuration file (sdk path, etc)
 local.properties
 
 # IOS / Xcode
+**/ios/www/*
 **/build/*
 *.pbxuser
 !default.pbxuser

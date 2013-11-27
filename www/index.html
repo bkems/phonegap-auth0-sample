@@ -47,6 +47,9 @@
                     showUserInfo(loggedInUser);
                     toggleLogin();   
                 }
+                else {
+                    showUserInfo();
+                }
 
                 $('#login-adfs').on('click', function() {
                     $('#result').html('Loading...');
