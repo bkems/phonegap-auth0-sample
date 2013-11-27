@@ -64,3 +64,11 @@
 2013-11-27 01:54:25.221 Auth0WithAdfs[61635:80b] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
 2013-11-27 01:54:44.460 Auth0WithAdfs[61635:5207] NSURLConnection/CFURLConnection HTTP load failed (kCFStreamErrorDomainSSL, -9814)
 2013-11-27 01:54:44.465 Auth0WithAdfs[61635:80b] webView:didFailLoadWithError - The certificate for this server is invalid. You might be connecting to a server that is pretending to be “test-adfs.auth0.com” which could put your confidential information at risk.
+2013-11-27 02:02:30.316 Auth0WithAdfs[62076:80b] Multi-tasking -> Device: YES, App: YES
+2013-11-27 02:02:31.315 Auth0WithAdfs[62076:80b] Resetting plugins due to page load.
+2013-11-27 02:02:31.673 Auth0WithAdfs[62076:80b] Finished load of: file:///Users/sebas/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/27D662C7-A5E8-476A-A786-728B34F7BF8B/Auth0WithAdfs.app/www/index.html
+2013-11-27 02:02:31.711 Auth0WithAdfs[62076:80b] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-11-27 02:14:27.134 Auth0WithAdfs[62557:80b] Multi-tasking -> Device: YES, App: YES
+2013-11-27 02:14:27.942 Auth0WithAdfs[62557:80b] Resetting plugins due to page load.
+2013-11-27 02:14:28.301 Auth0WithAdfs[62557:80b] Finished load of: file:///Users/sebas/Library/Application%20Support/iPhone%20Simulator/7.0.3/Applications/27D662C7-A5E8-476A-A786-728B34F7BF8B/Auth0WithAdfs.app/www/index.html
+2013-11-27 02:14:28.337 Auth0WithAdfs[62557:80b] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 

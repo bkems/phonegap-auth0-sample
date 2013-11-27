@@ -880,7 +880,7 @@ s3202628
 
 CCheck dependencies
 r0
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciesa9174476b245b841^637e6a76b245b841^---0#1#1#--18"Check dependencies36"128A3D25-5CF6-4F4E-B448-A1E01AF7C680-
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies9a052628b745b841^b6bc4a28b745b841^---0#1#1#--18"Check dependencies36"05C88087-93C2-431C-B318-FE5F5D41B22C-
 
 CCompileC build/CordovaLib.build/Debug-iphonesimulator/CordovaLib.build/Objects-normal/i386/CDVAccelerometer.o /Users/sebas/Documents/Projects/phonegap-auth0-adfs-sample/platforms/ios/CordovaLib/Classes/CDVAccelerometer.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 s407218372.425672
