@@ -38,7 +38,7 @@
                 var domain          = 'contoso.auth0.com';
                 var clientId        = 'KPmb7b0Pps5jwzBRTc3wJzR9zQeCfDr5';
                 var clientSecret    = 'MLgQgSl2SyL46vToZ3w_pYCMjLxYKqGze-4lvJc9yceUg6Y-Pggq1huvxg0v58X2';
-                var connection      = 'partner.com';
+                var adfsConnection  = 'partner.com';
 
                 var auth0Client = new Auth0Client(domain, clientId, clientSecret);
 
@@ -51,7 +51,7 @@
                 $('#login-adfs').on('click', function() {
                     $('#result').html('Loading...');
 
-                    auth0Client.login({ connection: connection }, function (err, auth0User) {
+                    auth0Client.login({ connection: adfsConnection }, function (err, auth0User) {
                         if (err) $('#result').html('error: ' + err.message);
                         else {
                             // * Use auth0User to do wonderful things, e.g.:
