@@ -87,6 +87,8 @@ Auth0Client.prototype.login = function (options, callback) {
     var authWindow = window.open(options.connection ? auth0Url : loginWidgetUrl, '_blank', 'location=no,toolbar=no');
     authWindow.addEventListener('loadstart', function (e) {
 
+      alert(JSON.stringify(e));
+
       if (e.url.indexOf(callbackUrl + '#') !== 0) return;
       
       var parsedResult = parseResult(e.url);
