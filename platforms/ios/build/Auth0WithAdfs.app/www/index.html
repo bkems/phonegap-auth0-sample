@@ -9,6 +9,8 @@
     </head>
     <body>
         <div class="app">
+            <span>Username: </span><input type="text" id="username" />
+            <span>Password: </span><input type="password" id="password" />
             <button id="login-adfs">Login with ADFS</button>
             <p id="result">Not logged in yet.</p>
         </div>
@@ -21,17 +23,17 @@
                 var domain          = 'contoso.auth0.com'; // e.g.: contoso.auth0.com
                 var clientId        = 'KPmb7b0Pps5jwzBRTc3wJzR9zQeCfDr5';
                 var clientSecret    = 'MLgQgSl2SyL46vToZ3w_pYCMjLxYKqGze-4lvJc9yceUg6Y-Pggq1huvxg0v58X2';
-                var connection      = 'nodejsbootcamp.com';
+                var connection      = 'partner.com';
 
                 var auth0Client = new Auth0Client(domain, clientId, clientSecret);
 
                 $('#login-adfs').on('click', function() {
                     $('#result').html('Loading...');
 
-                    var username = $('#login-username').val();
-                    var password = $('#login-password').val();
+                    var username = $('#username').val();
+                    var password = $('#password').val();
 
-                    auth0Client.login({ connection: connection }, function (err, auth0User) {
+                    auth0Client.login({ connection: connection, username: username, password: password }, function (err, auth0User) {
                         if (err) $('#result').html('error: ' + err.message);
                         else {
                             // * Use auth0User to do wonderful things, e.g.:

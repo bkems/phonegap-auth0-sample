@@ -67,7 +67,10 @@ Auth0Client.prototype.login = function (options, callback) {
       done(null, result);
     })
     .fail(function (resp) {
-      done(new Error(resp.responseJSON ? resp.responseJSON.error : resp.responseText));
+      var message = resp.responseJSON ? 
+        resp.responseJSON.error + ': ' + resp.responseJSON.error_description :
+        resp.responseText;
+      done(new Error(message));
     });
   }
   else {
