@@ -37,10 +37,9 @@
             $(document).on('deviceready', function() {
                 var domain          = 'contoso.auth0.com';
                 var clientId        = 'KPmb7b0Pps5jwzBRTc3wJzR9zQeCfDr5';
-                var clientSecret    = 'MLgQgSl2SyL46vToZ3w_pYCMjLxYKqGze-4lvJc9yceUg6Y-Pggq1huvxg0v58X2';
                 var adfsConnection  = 'partner.com';
 
-                var auth0Client = new Auth0Client(domain, clientId, clientSecret);
+                var auth0Client = new Auth0Client(domain, clientId);
 
                 var loggedInUser = auth0Client.getCurrentUser();
                 if (loggedInUser) {
