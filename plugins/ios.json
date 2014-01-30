@@ -1,1 +1,1 @@
-{"prepare_queue":{"installed":[],"uninstalled":[]},"config_munge":{},"installed_plugins":{},"dependent_plugins":{}}
+{"prepare_queue":{"installed":[],"uninstalled":[]},"config_munge":{"framework":{"CoreGraphics.framework":{"false":1}},"config.xml":{"/*":{"<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>":1,"<access origin=\"https://auth0.com\" />":1}}},"installed_plugins":{"com.auth0.sdk":{"PACKAGE_NAME":"com.auth0.sdk.sample"}},"dependent_plugins":{"org.apache.cordova.inappbrowser":{"PACKAGE_NAME":"com.auth0.sdk.sample"}}}

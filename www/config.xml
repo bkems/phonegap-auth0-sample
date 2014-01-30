@@ -1,15 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.auth0.samples.adfs" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Auth0WithAdfs</name>
+<widget id="com.auth0.sdk.sample" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Auth0-Sample</name>
     <description>
-        Authentication with Auth0 and ADFS from a phonegap app.
+        Authentication with Auth0 from a phonegap app.
     </description>
     <author email="support@auth0.com" href="http://auth0.com">
         Auth0
     </author>
     <feature name="http://api.phonegap.com/1.0/device" />
     <preference name="permissions" value="none" />
-    <preference name="phonegap-version" value="2.9.0" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="true" />
@@ -48,5 +47,6 @@
     <gap:splash gap:platform="ios" height="1024" src="res/screen/ios/screen-ipad-portrait.png" width="768" />
     <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
-    <access origin="*" />
+    <access origin="http://127.0.0.1*" />
+    <plugin name="Auth0Client" value="com.auth0.sdk" />
 </widget>

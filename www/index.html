@@ -3,27 +3,32 @@
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Auth0 PhoneGap sample</title>
     </head>
     <body>
         <div class="app">
-            <div id="login-panel">
-                <button id="login-dbConn" style="width:120px;">Employees</button>
-                <button id="login-widget" style="width:120px;">Others</button>
+            <div id="deviceready">
+                <div class="received">
+                    <div id="login-panel">
+                        <button id="login-db-conn" style="width:120px;">Employees</button>
+                        <button id="login-widget" style="width:120px;">Others</button>
+                    </div>
+                    <div id="logout-panel" style="display:none;">
+                        <button id="logout" style="width:120px;">Logout</button>
+                    </div>
+                    <hr>
+                    <p id="result"></p>
+                </div>
             </div>
-            <div id="logout-panel" style="display:none;">
-                <button id="logout" style="width:120px;">Logout</button>
-            </div>
-            <hr>
-            <p id="result"></p>
         </div>
-
         <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="js/auth0.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
         <script type="text/javascript">
+            app.initialize();
 
             function toggleLogin () {
                 $('#login-panel').toggle();
@@ -34,10 +39,11 @@
                 $('#result').html(auth0User ? ('Hello ' + auth0User.profile.name + '!') : 'Not logged in yet.');
             }
 
-            $(document).on('deviceready', function() {
-                var domain          = 'contoso.auth0.com';
-                var clientId        = 'KPmb7b0Pps5jwzBRTc3wJzR9zQeCfDr5';
-                var dbConnection    = 'sql-azure-database';
+            document.addEventListener('deviceready', function () {
+                
+                var domain        = 'contoso.auth0.com';
+                var clientId      = 'KPmb7b0Pps5jwzBRTc3wJzR9zQeCfDr5';
+                var dbConnection  = 'sql-azure-database';
 
                 var auth0Client = new Auth0Client(domain, clientId);
 
@@ -50,10 +56,10 @@
                     showUserInfo();
                 }
 
-                $('#login-widget').on('click', function() {
+                $('#login-db-conn').on('click', function() {
                     $('#result').html('Loading...');
 
-                    auth0Client.login(function (err, auth0User) {
+                    auth0Client.login({ connection: dbConnection }, function (err, auth0User) {
                         if (err) $('#result').html('error: ' + err.message);
                         else {
                             // * Use auth0User to do wonderful things, e.g.:
@@ -67,10 +73,10 @@
                     });
                 });
 
-                $('#login-dbConn').on('click', function() {
+                $('#login-widget').on('click', function() {
                     $('#result').html('Loading...');
 
-                    auth0Client.login({ connection: dbConnection }, function (err, auth0User) {
+                    auth0Client.login(function (err, auth0User) {
                         if (err) $('#result').html('error: ' + err.message);
                         else {
                             // * Use auth0User to do wonderful things, e.g.:
@@ -92,6 +98,7 @@
                         toggleLogin();
                     });
                 });
+
             });
         </script>
     </body>
