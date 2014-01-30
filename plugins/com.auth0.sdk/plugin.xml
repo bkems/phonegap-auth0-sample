@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.auth0.sdk"
+    version="0.1.1">
+
+  <name>Auth0</name>
+  
+  <description>
+    Client library for the Auth0 API.
+  </description>
+
+  <keywords>auth0, oauth, federation, wsfed, adfs, office365, googleapps</keywords>
+
+  <license>MIT</license>
+  
+  <asset src="www/auth0.js" target="auth0.js" />
+
+  <js-module src="www/auth0.js" name="Auth0Client">
+    <clobbers target="Auth0Client" />
+  </js-module>
+
+  <config-file target="config.xml" parent="/*">
+    <access origin="https://auth0.com" />
+  </config-file>
+  
+  <engines>
+    <engine name="cordova" version=">=3.0.0" />
+  </engines>
+  
+  <platform name="android"></platform>
+  <platform name="ios"></platform>
+  <platform name="windows8"></platform>
+
+  <dependency id="org.apache.cordova.inappbrowser" url="https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git" />
+</plugin>

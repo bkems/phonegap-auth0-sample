@@ -2,6 +2,7 @@
 **/merges/*
 **/platforms/*
 **/plugins/*
+!**/plugins/com.auth0.sdk
 
 # ANDROID / ECLIPSE
 
