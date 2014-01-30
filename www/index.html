@@ -10,7 +10,7 @@
     <body>
         <div class="app">
             <div id="login-panel">
-                <button id="login-adfs" style="width:120px;">Ricoh Employees</button>
+                <button id="login-dbConn" style="width:120px;">Employees</button>
                 <button id="login-widget" style="width:120px;">Others</button>
             </div>
             <div id="logout-panel" style="display:none;">
@@ -37,7 +37,7 @@
             $(document).on('deviceready', function() {
                 var domain          = 'contoso.auth0.com';
                 var clientId        = 'KPmb7b0Pps5jwzBRTc3wJzR9zQeCfDr5';
-                var adfsConnection  = 'partner.com';
+                var dbConnection    = 'sql-azure-database';
 
                 var auth0Client = new Auth0Client(domain, clientId);
 
@@ -50,10 +50,10 @@
                     showUserInfo();
                 }
 
-                $('#login-adfs').on('click', function() {
+                $('#login-widget').on('click', function() {
                     $('#result').html('Loading...');
 
-                    auth0Client.login({ connection: adfsConnection }, function (err, auth0User) {
+                    auth0Client.login(function (err, auth0User) {
                         if (err) $('#result').html('error: ' + err.message);
                         else {
                             // * Use auth0User to do wonderful things, e.g.:
@@ -67,10 +67,10 @@
                     });
                 });
 
-                $('#login-widget').on('click', function() {
+                $('#login-dbConn').on('click', function() {
                     $('#result').html('Loading...');
 
-                    auth0Client.login(function (err, auth0User) {
+                    auth0Client.login({ connection: dbConnection }, function (err, auth0User) {
                         if (err) $('#result').html('error: ' + err.message);
                         else {
                             // * Use auth0User to do wonderful things, e.g.:
