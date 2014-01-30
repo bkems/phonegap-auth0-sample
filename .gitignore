@@ -1,5 +1,7 @@
-#phonegap
-
+# phonegap
+**/merges/*
+**/platforms/*
+**/plugins/*
 
 # ANDROID / ECLIPSE
 
