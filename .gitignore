@@ -1,6 +1,7 @@
 # phonegap
 **/merges/*
 **/platforms/*
+!**/platforms/.dummy
 **/plugins/*
 !**/plugins/com.auth0.sdk
 
