@@ -87,7 +87,13 @@ Auth0Client.prototype.login = function (options, callback) {
 
     var auth0Url = options.connection ? authorizeUrl : loginWidgetUrl;
 
-    var authWindow = window.open(options.connection ? auth0Url : loginWidgetUrl, '_blank', 'location=no,toolbar=no');
+    if (options.extra) {
+      Object.keys(options.extra).forEach(function (k) {
+        auth0Url += '&' + k + '=' + encodeURI(options.extra[k]);
+      });
+    }
+    
+    var authWindow = window.open(auth0Url, '_blank', 'location=no,toolbar=no');
     authWindow.addEventListener('loadstart', function (e) {
 
       if (e.url.indexOf(callbackUrl + '#') !== 0) return;
