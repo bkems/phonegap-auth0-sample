@@ -30,7 +30,7 @@ Auth0Client.prototype.login = function (options, callback) {
   var userInfoEndpoint = this.UserInfoEndpoint.replace(/{domain}/, this.domain);
 
   // defaults
-  options.scope = options.scope ? encodeURI(options.scope) : "openid";
+  options.scope = options.scope ? options.scope : "openid";
   options.connection = options.connection || '';
 
   // done
@@ -82,8 +82,8 @@ Auth0Client.prototype.login = function (options, callback) {
     var loginWidgetUrl = this.LoginWidgetUrl.replace(/{domain}/, this.domain);
     var callbackUrl = this.DefaultCallback.replace(/{domain}/, this.domain);
 
-    authorizeUrl += "?client_id=" + this.clientId + "&redirect_uri=" + callbackUrl + "&response_type=token&scope=" + options.scope + "&connection=" + options.connection;
-    loginWidgetUrl += "?client=" + this.clientId + "&redirect_uri=" + callbackUrl + "&response_type=token&scope=" + options.scope;
+    authorizeUrl += "?client_id=" + this.clientId + "&redirect_uri=" + callbackUrl + "&response_type=token&scope=" + encodeURI(options.scope) + "&connection=" + options.connection;
+    loginWidgetUrl += "?client=" + this.clientId + "&redirect_uri=" + callbackUrl + "&response_type=token&scope=" + encodeURI(options.scope);
 
     var auth0Url = options.connection ? authorizeUrl : loginWidgetUrl;
 
@@ -148,7 +148,7 @@ Auth0Client.prototype.getDelegationToken = function (targetClientId, options, ca
 };
 
 Auth0Client.prototype.logout = function (callback) {
-  this._clearLocalStorage();  
+  this._removeLocalStorage('auth0User');  
   if (callback) callback();
 };
 
@@ -165,8 +165,8 @@ Auth0Client.prototype._setLocalStorage = function (key, value) {
   window.localStorage.setItem(key, JSON.stringify(value));
 };
 
-Auth0Client.prototype._clearLocalStorage = function () {
-  window.localStorage.clear();
+Auth0Client.prototype._removeLocalStorage = function (key) {
+  window.localStorage.removeItem(key);
 };
 
 Auth0Client.prototype._getUserInfo = function (endpoint, callback) {
