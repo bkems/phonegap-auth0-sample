@@ -20,11 +20,12 @@
                         <button id="logout" style="width:120px;">Logout</button>
                     </div>
                     <hr>
+                    <button id="redelegate" style="width:120px;">Redelegate</button>
                     <p id="result"></p>
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
         <script type="text/javascript">
@@ -36,8 +37,11 @@
             };
 
             function showUserInfo (auth0User) {
+                console.log("showUseInfo");
+                console.log(auth0User);
                 $('#result').html(auth0User ? ('Hello ' + auth0User.profile.name + '!') : 'Not logged in yet.');
             }
+                        
 
             document.addEventListener('deviceready', function () {
                 
@@ -46,6 +50,8 @@
                 var dbConnection  = 'sql-azure-database';
 
                 var auth0Client = new Auth0Client(domain, clientId);
+                
+                var validToken;
 
                 var loggedInUser = auth0Client.getCurrentUser();
                 if (loggedInUser) {
@@ -56,10 +62,11 @@
                     showUserInfo();
                 }
 
-                $('#login-db-conn').on('click', function() {
+                $('#login-db-conn').on('touchstart', function() {
                     $('#result').html('Loading...');
 
                     auth0Client.login({ connection: dbConnection }, function (err, auth0User) {
+                        console.log(auth0User);
                         if (err) $('#result').html('error: ' + err.message);
                         else {
                             // * Use auth0User to do wonderful things, e.g.:
@@ -67,16 +74,18 @@
                             // - get facebook/google/twitter/etc access token => auth0User.profile.identities[0].access_token
                             // - get Windows Azure AD groups => auth0User.profile.groups
                             // - etc.
+                            validToken = auth0User.idToken;
                             showUserInfo(auth0User);
                             toggleLogin();
                         }
                     });
                 });
 
-                $('#login-widget').on('click', function() {
+                $('#login-widget').on('touchstart', function() {
                     $('#result').html('Loading...');
 
                     auth0Client.login(function (err, auth0User) {
+                        console.log(auth0User);
                         if (err) $('#result').html('error: ' + err.message);
                         else {
                             // * Use auth0User to do wonderful things, e.g.:
@@ -84,13 +93,14 @@
                             // - get facebook/google/twitter/etc access token => auth0User.profile.identities[0].access_token
                             // - get Windows Azure AD groups => auth0User.profile.groups
                             // - etc.
+                            validToken = auth0User.idToken;
                             showUserInfo(auth0User);
                             toggleLogin();
                         }
                     });
                 });
 
-                $('#logout').on('click', function() {
+                $('#logout').on('touchstart', function() {
                     $('#result').html('Loading...');
 
                     auth0Client.logout(function () {
@@ -98,7 +108,30 @@
                         toggleLogin();
                     });
                 });
+				
 
+                $('#redelegate').on('touchstart', function() {
+                    $('#result').html('Redelegating...');
+					var options = {
+									"scope": "openid profile",
+									"id_token": validToken
+								};
+                    $.ajaxSetup({
+                      'beforeSend': function(xhr) {
+                        if (validToken) {    
+                          console.log("set token on request");
+                          xhr.setRequestHeader('Authorization', 
+                                'Bearer ' + validToken);
+                        }
+                      }
+                    });
+                    auth0Client.getDelegationToken("KPmb7b0Pps5jwzBRTc3wJzR9zQeCfDr5", options, function (err, delegationResult) {
+                        console.log(err);
+                        console.log(delegationResult);
+                    });
+                });
+				
+				
             });
         </script>
     </body>
